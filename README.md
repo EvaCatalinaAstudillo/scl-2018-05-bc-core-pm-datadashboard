@@ -9,7 +9,7 @@ apoyarlas en su aprendizaje.
 
 ## User Experience Design
 
-### 1) Definición del producto
+### 1) Entrevista al usuario
 
 **Quiénes son los principales usuarios de producto**
 Los principales usuarios del producto son los training managers de Laboratoria.
@@ -37,9 +37,9 @@ En primer lugar, cada integrante del equipo trabajó individualmente y planteó 
 **Definición del producto Sketch**
 
 
-### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) desktop
+### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
+ **Desktop**
 [Prototipo de alta fidelidad desktop](https://www.figma.com/file/YmabpXXPzkEybU2GKnmokm65/Data).
-
-
-### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) movil
+ 
+**Movil**
 [Prototipo de alta fidelidad movil](https://www.figma.com/file/Bfgp5x9Cak2Fjwd3brofLACU/PROYECTO-DASHBOARD)
