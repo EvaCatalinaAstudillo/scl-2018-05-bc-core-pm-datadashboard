@@ -9,6 +9,8 @@ apoyarlas en su aprendizaje.
 
 ## User Experience Design
 
+### 1) Entrevista al usuario
+
 **Quiénes son los principales usuarios de producto**
 Los principales usuarios del producto son los training managers de Laboratoria.
 
@@ -27,8 +29,17 @@ El producto resuelve sus problemas porque está pensado para ser una extensión 
 **Cómo fue tu proceso de diseño.**
 En primer lugar, cada integrante del equipo trabajó individualmente y planteó un sketch del proyecto. Posteriormente se hizo un peer review para exponer cada visión de la interfaz del sitio y se creó un nuevo sketch a partir de las soluciones más óptimas y factibles, con el fin de presentarlo al usuario y obtener su opinión.
 
-## Sketch
-![sketchfinal](https://user-images.githubusercontent.com/39053734/41178829-dd342274-6b3e-11e8-96de-82289f03ac70.jpg)
 
-## Prototipo
-[Prototipo de alta fidelidad](https://www.figma.com/file/YmabpXXPzkEybU2GKnmokm65/Data).
+### 2) Sketch de la solución (prototipo de baja fidelidad)
+
+![sketch final dashboard](https://user-images.githubusercontent.com/39053734/41178829-dd342274-6b3e-11e8-96de-82289f03ac70.jpg)
+![skecht final dashboard 2](https://user-images.githubusercontent.com/39053734/41180840-06b09446-6b46-11e8-803b-04f61a660b5a.jpg)
+**Definición del producto Sketch**
+
+
+### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
+ **Desktop**
+[Prototipo de alta fidelidad desktop](https://www.figma.com/file/YmabpXXPzkEybU2GKnmokm65/Data).
+ 
+**Movil**
+[Prototipo de alta fidelidad movil](https://www.figma.com/file/Bfgp5x9Cak2Fjwd3brofLACU/PROYECTO-DASHBOARD)
