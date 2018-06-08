@@ -6,6 +6,9 @@ En Laboratoria, las Training Managers (TMs) hacen un gran trabajo al analizar la
 mayor cantidad de datos posibles respecto al progreso de las estudiantes para
 apoyarlas en su aprendizaje.
 
+##Planificación del proyecto
+[Trello]
+(https://trello.com/b/tVkuxrLr/data-dashboard)
 
 ## User Experience Design
 
