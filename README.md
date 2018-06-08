@@ -32,9 +32,14 @@ En primer lugar, cada integrante del equipo trabajó individualmente y planteó 
 
 ### 2) Sketch de la solución (prototipo de baja fidelidad)
 
-![sketchfinal](https://user-images.githubusercontent.com/39053734/41178829-dd342274-6b3e-11e8-96de-82289f03ac70.jpg)
+![sketch final dashboard](https://user-images.githubusercontent.com/39053734/41178829-dd342274-6b3e-11e8-96de-82289f03ac70.jpg)
+![skecht final dashboard 2](https://user-images.githubusercontent.com/39053734/41180840-06b09446-6b46-11e8-803b-04f61a660b5a.jpg)
 **Definición del producto Sketch**
 
 
-### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
-[Prototipo de alta fidelidad](https://www.figma.com/file/YmabpXXPzkEybU2GKnmokm65/Data).
+### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) desktop
+[Prototipo de alta fidelidad desktop](https://www.figma.com/file/YmabpXXPzkEybU2GKnmokm65/Data).
+
+
+### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad) movil
+[Prototipo de alta fidelidad movil](https://www.figma.com/file/Bfgp5x9Cak2Fjwd3brofLACU/PROYECTO-DASHBOARD)
