@@ -8,7 +8,7 @@ apoyarlas en su aprendizaje.
 
 ## Planificación del proyecto
 [Trello]
-(https://trello.com/b/tVkuxrLr/data-dashboard)
+(https://trello.com/b/tVkuxrLr/data-dashboard).
 
 ## User Experience Design
 
