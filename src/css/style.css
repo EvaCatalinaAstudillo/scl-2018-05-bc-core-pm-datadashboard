@@ -36,6 +36,7 @@ input[type=text] {
     height: 40px;
     padding: 10px;
     font-style: italic;
+    margin-bottom: 15px;
 }
 #form {
     line-height: 130px;
@@ -62,14 +63,15 @@ button:hover {
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffc107;
     height: inherit;
+    padding: 10px;
 }
-#logo
+.logo
 {
 background: #ffffff;
-height: inherit;
+padding: 10px;
 border-bottom: 1px solid #e4dfdf;
 }
-#logo img{
+.logo img{
     height: 40px;
     margin: auto;
     display: block;
@@ -84,7 +86,7 @@ border-bottom: 1px solid #e4dfdf;
 
 .space
 {
-    height: 10px;
+    height:30px;
 }
 .circle
 {
@@ -118,9 +120,11 @@ border-bottom: 1px solid #e4dfdf;
 {
     background: #F2F2F2;
 }
-.radius-top
+.headerEstudents
 {
     border-top-right-radius: 10px;
+     background: #F2F2F2;
+     padding: 20px;
 }
 .center
 {
