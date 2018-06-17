@@ -50,7 +50,7 @@ inputChange = (users, progress, cohorts) => {
 };
 processCohortData = (options) => {
   let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
-  let userNewArray = computeUsersStats(options.cohortData.users, options.progress, coursesCohortSelect);
+  let userNewArray = computeUsersStats(options.cohortData.users, options.cohortData.progress, coursesCohortSelect);
   userNewArray = filterUsers(userNewArray, options.search);
   userNewArray = sortUsers(userNewArray, options.orderBy, options.orderDirection);
   return userNewArray;
