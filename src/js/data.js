@@ -59,8 +59,10 @@ sortUsers = (users, orderBy, orderDirection) => {
 
 };
 filterUsers = (users, search) => {
+}
 
-};
+
+
 computeUsersStats = (users, progress, courses) => {
     
 };
