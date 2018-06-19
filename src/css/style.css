@@ -136,6 +136,7 @@ border-bottom: 1px solid #e4dfdf;
     overflow: scroll;
     max-height: 600px;
     border: 1px solid #f3f3f2;
+    padding: 0px;
 }
 .studentOne {
    background:#ffffff;

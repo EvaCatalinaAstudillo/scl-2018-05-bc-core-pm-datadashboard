@@ -26,8 +26,9 @@
   </header>
   <div class="row space"></div>
 
+ <div class="container">
 <!-- Lista de cohorts y estadisticas -->  
-  <section class="container">
+  <section>
     <div class="row">
       <div class="col-12 col-md-5">
         <form id="form" method="POST">
@@ -70,7 +71,7 @@
   <div class="row space"></div>
 
 <!-- Filtrado -->
-  <section class="container">
+  <section>
     <div class="row">
       <div class="col-12 col-md-5">
         <input name="search" type="text" class="filterChange" id="searchInput" placeholder="Buscar alumna por nombre">
@@ -99,7 +100,7 @@
   <div class="row space"></div>
 
   <!-- Estudiantes -->
-  <section class="container">
+  <section>
     <!-- Encabezado de estudiantes -->
     <div class="row">
       <div class="col-12 col-md-12 headerEstudents">
@@ -124,9 +125,12 @@
     </div>
 
     <!-- Lista de estudiantes -->
-    <div class="col-12 col-md-12" id="students"> 
+    <div class="row">
+      <div class="col-12 col-md-12" id="students"> 
+      </div>
     </div>
   </section>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="js/bootstrap.js"></script>
