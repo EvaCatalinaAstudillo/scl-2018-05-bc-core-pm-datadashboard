@@ -8,7 +8,7 @@ async function requiereJson() {
   const progress = await jsonProgress.json();
   const jsonCohorts = await fetch('../../data/cohorts.json');
   const cohorts = await jsonCohorts.json();
-
+  //llamando criterios y dejando en pausa paa despues ejecutar.
   showCohortsList(cohorts);
   inputChange(users, progress, cohorts);
 }
@@ -57,12 +57,28 @@ processCohortData = (options) => {
   return userNewArray;
 };
 sortUsers = (users, orderBy, orderDirection) => {
-//aca pongan el codigo
-};
+}
+
 filterUsers = (users, search) => {
-//aca pongan el codigo
-  
+  //aca pongan el codigo
+
 };
 computeUsersStats = (users, progress, courses) => {
-//aca pongan el codigo
-};
+  users.forEach(function (element) {
+    console.log(element);
+  });
+
+  for (i = 0; i < users.length; i++) {
+    users[i] = {
+      ...users[i],
+      stats: {
+        percent: 0,
+        exercises: { total: 0, completed: 0, percent: 0, },
+        reads: { total: 0, completed: 0, percent: 0, },
+        quizzes: { total: 0, completed: 0, percent: 0, scoreSum: 0, scoreAvg: 0, },
+
+      }
+    }
+    console.log(users[i])
+  }
+}
