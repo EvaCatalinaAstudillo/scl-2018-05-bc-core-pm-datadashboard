@@ -9,6 +9,7 @@ showCohortsList = (cohorts) => {
   });
 }
 printData = (users) => {
+  console.log(users)
   document.getElementById('students').innerText = '';
   for (let i = 0; i < users.length; i++) {
     const userList = document.getElementById('students');
