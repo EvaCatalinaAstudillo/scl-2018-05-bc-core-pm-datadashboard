@@ -57,15 +57,18 @@ processCohortData = (options) => {
   return userNewArray;
 };
 sortUsers = (users, orderBy, orderDirection) => {
-//aca pongan el codigo
+ 
 };
 filterUsers = (users, search) => {
-users.filter(function(search){ 
-//element es equivalente al objeto. 
-//la función retorna objetos que contengan el nombre buscado.
-}); return (search.name == filter);
+users.filter(function(element){ 
+
+}); return (element.name == filter);
 };
 
 computeUsersStats = (users, progress, courses) => {
  //aca pongan el codigo
 }
+
+
+//element es equivalente al objeto. 
+//la función retorna objetos que contengan el nombre buscado.
