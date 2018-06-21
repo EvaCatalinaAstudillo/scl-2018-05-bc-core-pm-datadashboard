@@ -59,14 +59,13 @@ window.computeUsersStats = (users, progress, courses) => {
   let completitudTotalSum = 0, percentLecturasSum = 0,
     percentQuizzSum = 0, percentExercisesSum = 0, completitudTotal = 0, percentLecturas = 0, percentQuizzes = 0, percentExercises = 0;
 
-  //eva acaaaaa  
-
+  
       // console.log(users[i].name + " " + quizzTotal + " completadas" + quizzCompleted + "porcentaje" + users[i].stats.quizzes.percent + scoreSumQuizz);
       percentLecturasSum += users[i].stats.reads.percent;
       percentQuizzSum += users[i].stats.quizzes.percent;
       percentExercisesSum += users[i].stats.exercises.percent;
     
-  
+  }
   // Estadisticas de todo el cohort
   completitudTotal = Math.round(completitudTotalSum / users.length) + ' % ';
   percentLecturas = Math.round(percentLecturasSum / users.length) + ' % ';
