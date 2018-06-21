@@ -22,21 +22,23 @@ inputChange = (users, progress, cohorts) => {
   let filter = '';
   let direcction = '';
 
-  // Escuchar eventos del dom y llamar la funcion cada vez que se cambie el filtro
-  document.getElementById('cohortsInput').addEventListener('change', function() {
-    let cohortSelect = document.getElementById('cohortsInput').value;
-    findCohort = cohorts.find(item => item.id === cohortSelect);
-    printData(processCohortData(createObjectOptions()));
-  });
-  document.getElementById('searchButtom').addEventListener('click', function() {
-    searchString = document.getElementById('searchInput').value;
-    printData(processCohortData(createObjectOptions()));
-  });
-  document.getElementById('filterButtom').addEventListener('click', function() {
-    filter = document.getElementById('filterInput').value;
-    direcction = document.filterForm.direction.value;
-    printData(processCohortData(createObjectOptions()));
-  });
+  if ("document" in window) {
+    // Escuchar eventos del dom y llamar la funcion cada vez que se cambie el filtro
+    document.getElementById('cohortsInput').addEventListener('change', function() {
+      let cohortSelect = document.getElementById('cohortsInput').value;
+      findCohort = cohorts.find(item => item.id === cohortSelect);
+      printData(processCohortData(createObjectOptions()));
+    });
+    document.getElementById('searchButtom').addEventListener('click', function() {
+      searchString = document.getElementById('searchInput').value;
+      printData(processCohortData(createObjectOptions()));
+    });
+    document.getElementById('filterButtom').addEventListener('click', function() {
+      filter = document.getElementById('filterInput').value;
+      direcction = document.filterForm.direction.value;
+      printData(processCohortData(createObjectOptions()));
+    });
+  }
   createObjectOptions = () => {
     const options = {
       cohort: findCohort,
@@ -52,13 +54,39 @@ inputChange = (users, progress, cohorts) => {
   };
 };
 
-processCohortData = (options) => {
-  let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
-  let userNewArray = computeUsersStats(options.cohortData.users, options.cohortData.progress, coursesCohortSelect);
-  userNewArray = filterUsers(userNewArray, options.search);
-  userNewArray = sortUsers(userNewArray, options.orderBy, options.orderDirection);
-  return userNewArray;
+window.computeUsersStats = (users, progress, courses) => {
+  // Variables de estadisticas de cohort en general
+  let completitudTotalSum = 0, percentLecturasSum = 0,
+    percentQuizzSum = 0, percentExercisesSum = 0, completitudTotal = 0, percentLecturas = 0, percentQuizzes = 0, percentExercises = 0;
+
+  //eva acaaaaa  
+
+      // console.log(users[i].name + " " + quizzTotal + " completadas" + quizzCompleted + "porcentaje" + users[i].stats.quizzes.percent + scoreSumQuizz);
+      percentLecturasSum += users[i].stats.reads.percent;
+      percentQuizzSum += users[i].stats.quizzes.percent;
+      percentExercisesSum += users[i].stats.exercises.percent;
+    
+  
+  // Estadisticas de todo el cohort
+  completitudTotal = Math.round(completitudTotalSum / users.length) + ' % ';
+  percentLecturas = Math.round(percentLecturasSum / users.length) + ' % ';
+  percentQuizzes = Math.round(percentQuizzSum / users.length) + ' % ';
+  percentExercises = Math.round(percentExercisesSum / users.length) + ' % ';
+
+  if("document" in window){
+    let totalSpan = document.getElementById('total');
+    console.log(totalSpan)
+    totalSpan.innerText = completitudTotal;
+    let lecturasSpan = document.getElementById('lecturas');
+    lecturasSpan.innerText = percentLecturas;
+    let quizzesSpan = document.getElementById('quizzes');
+    quizzesSpan.innerText = percentQuizzes;
+    let exercisesSpan = document.getElementById('ejercicios');
+    exercisesSpan.innerText = percentExercises;
+  }
+  return users;
 };
+
 window.sortUsers = (users, orderBy, orderDirection) => {
   let sorted = users;
 
@@ -115,8 +143,18 @@ window.sortUsers = (users, orderBy, orderDirection) => {
   return sorted;
 };
 window.filterUsers = (users, search) => {
- 
+  if (search === '') {
+    return users;
+  }
+  const usersFilter = users.filter((elemento) => {
+    return elemento.name === search;
+  });
+  return usersFilter;
 };
-window.computeUsersStats = (users, progress, courses) => {
-
+processCohortData = (options) => {
+  let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
+  let userNewArray = window.computeUsersStats(options.cohortData.users, options.cohortData.progress, coursesCohortSelect);
+  userNewArray = window.filterUsers(userNewArray, options.search);
+  userNewArray = window.sortUsers(userNewArray, options.orderBy, options.orderDirection);
+  return userNewArray;
 };
