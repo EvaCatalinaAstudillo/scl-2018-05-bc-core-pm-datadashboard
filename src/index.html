@@ -26,8 +26,8 @@
   </header>
   <div class="row space"></div>
 
+<!-- Lista de cohorts y estadisticas -->
   <div class="container">
-    <!-- Lista de cohorts y estadisticas -->
     <section>
       <div class="row">
         <div class="col-12 col-md-5">
@@ -78,20 +78,20 @@
           <i class="fas fa-search" id="searchButtom"></i>
         </div>
         <div class="col-12 col-md-7">
-          <form method="POST" name="filterForm" name="filterForm">
+          <form method="POST" name="filterForm">
             <datalist id="filter">
-              <option id="list">Nombre</option>
-              <option id="list">Porcentaje de completitud total</option>
-              <option id="list">Porcentaje de ejercicios autocorregidos completados</option>
-              <option id="list">Puntuación promedio en quizzes completados</option>
-              <option id="list">Porcentaje de quizzes completados</option>
-              <option id="list">Porcentaje de lecturas completadas</option>
+              <option>Nombre</option>
+              <option>Porcentaje de completitud total</option>
+              <option>Porcentaje de ejercicios autocorregidos completados</option>
+              <option>Puntuación promedio en quizzes completados</option>
+              <option>Porcentaje de quizzes completados</option>
+              <option>Porcentaje de lecturas completadas</option>
             </datalist>
 
             <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden">
-            <input type="radio" name="direction" value="asc">
+            <input type="radio" name="direction" value="ASC">
             <i class="fas fa-arrow-up" id="asc"></i>
-            <input type="radio" name="direction" value="desc">
+            <input type="radio" name="direction" value="DESC">
             <i class="fas fa-arrow-down" id="desc"></i>
             <button type="button" id="filterButtom">Filtrar</button>
           </form>
