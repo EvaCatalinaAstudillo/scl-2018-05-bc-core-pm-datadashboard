@@ -6,28 +6,34 @@ h2 {
     text-transform: uppercase;
     padding: 7px;
 }
+
 h3 {
     padding: 5px;
     font-weight: normal;
 }
+
 h4 {
     padding: 8px;
     color: #3e3737;
     display: inline-block;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
 }
+
 p {
     font-family: 'Open Sans', sans-serif;
     color: blue;
 }
+
 img {
     margin: 0 auto;
     display: block;
 }
+
 span {
     padding: 5px;
 }
+
 input[type=text] {
     border-radius: 5px;
     background: #ffffff;
@@ -38,58 +44,60 @@ input[type=text] {
     font-style: italic;
     margin-bottom: 15px;
 }
+
 #form {
     line-height: 130px;
 }
-button
-{
-   background-color: #f6c133;
-   border: 2px solid #ffc107;
-   padding: 10px;
-   margin: 0 10px;
-   font-size: 14px;
-   border-radius: 5px;
+
+button {
+    background-color: #f6c133;
+    border: 2px solid #ffc107;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 14px;
+    border-radius: 5px;
 }
+
 button:hover {
     background-color: #ffffff;
     border: 2px solid #f6c133;
     cursor: pointer;
 }
+
 #filterInput {
     width: 60%;
 }
-#title
-{
+
+#title {
     color: rgba(0, 0, 0, 0.87);
     background-color: #ffc107;
     height: inherit;
     padding: 10px;
 }
-.logo
-{
-background: #ffffff;
-padding: 10px;
-border-bottom: 1px solid #e4dfdf;
+
+.logo {
+    background: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #e4dfdf;
 }
-.logo img{
+
+.logo img {
     height: 40px;
     margin: auto;
     display: block;
     padding: 10px;
-        
 }
-.header
-{
+
+.header {
     padding: 0px;
     height: 64px;
 }
 
-.space
-{
-    height:30px;
+.space {
+    height: 30px;
 }
-.circle
-{
+
+.circle {
     background-color: #ffffff;
     border: 5px solid #f6c133;
     border-style: double;
@@ -106,40 +114,47 @@ border-bottom: 1px solid #e4dfdf;
     margin-bottom: 20px;
     display: inline-block;
 }
-.fa-search
-{
+
+.fa-search {
     color: #5d5858;
     padding: 5px;
     font-size: 20px;
     cursor: pointer;
 }
+
 .fa-search:hover {
     color: #f6c133;
 }
-.gray
-{
+
+.gray {
     background: #F2F2F2;
 }
-.headerEstudents
-{
+
+.headerEstudents {
     border-top-right-radius: 10px;
-     background: #F2F2F2;
-     padding: 20px;
+    background: #F2F2F2;
+    padding: 20px;
 }
-.center
-{
+
+.center {
     text-align: center;
 }
 
-#students
-{
+#students {
     overflow: scroll;
     max-height: 600px;
     border: 1px solid #f3f3f2;
+    padding: 0px;
 }
+
 .studentOne {
-   background:#ffffff;
+    background: #ffffff;
 }
+
 .studentTwo {
     background: #f5f4f4;
+}
+
+.spanHeaderStudents {
+    font-size: 14px;
 }

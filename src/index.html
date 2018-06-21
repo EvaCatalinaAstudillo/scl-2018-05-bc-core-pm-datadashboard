@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Data Dashboard</title>
-<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-grid.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap-grid.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
@@ -15,122 +15,132 @@
 <body>
   <!-- Logo y titulo -->
   <header class="container-fluid">
-  <div class="row header">
-    <div class="col-12 col-md-3 logo">
-      <img src="img/logo.svg" alt="">
+    <div class="row header">
+      <div class="col-12 col-md-3 logo">
+        <img src="img/logo.svg" alt="">
+      </div>
+      <div class="col-12 col-md-9" id="title">
+        <h2>Data dashboard</h2>
+      </div>
     </div>
-    <div class="col-12 col-md-9" id="title">
-      <h2>Data dashboard</h2>
-    </div>
-  </div>
   </header>
   <div class="row space"></div>
 
-<!-- Lista de cohorts y estadisticas -->  
-  <section class="container">
-    <div class="row">
-      <div class="col-12 col-md-5">
-        <form id="form" method="POST">
-          <datalist id="listas">
-            <option id="list"></option>
-          </datalist>
-          <input list="listas" type="text" class="filterChange" id="cohortsInput" placeholder="Seleccione cohort">
-        </form>
-      </div>
-      <div class="col-12 col-md-7">
-        <div class="row">
-          <div class="col-6 col-md-3 center">
-            <div class="circle">
-              <span>70%</span>
+  <div class="container">
+    <!-- Lista de cohorts y estadisticas -->
+    <section>
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <form id="form" method="POST">
+            <datalist id="listas">
+              <option id="list"></option>
+            </datalist>
+            <input list="listas" type="text" class="filterChange" id="cohortsInput" placeholder="Seleccione cohort">
+          </form>
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="row">
+            <div class="col-6 col-md-3 center">
+              <div class="circle">
+                <span id="total">0</span>
+              </div>
+              <span>Completitud Total</span>
             </div>
-            <span>Completitud Total</span>
-          </div>
-          <div class="col-6 col-md-3 center">
-            <div class="circle">
-              <span>70%</span>
+            <div class="col-6 col-md-3 center">
+              <div class="circle">
+                <span id="lecturas">0</span>
+              </div>
+              <span>Completitud Lecturas</span>
             </div>
-            <span>Completitud Lecturas</span>
-          </div>
-          <div class="col-6 col-md-3 center">
-            <div class="circle">
-            <span>70%</span>
+            <div class="col-6 col-md-3 center">
+              <div class="circle">
+                <span id="ejercicios">0</span>
+              </div>
+              <span>Completitud Ejercicios</span>
             </div>
-            <span>Completitud Ejercicios</span>
-          </div>
-          <div class="col-6 col-md-3 center">
-            <div class="circle">
-            <span>70%</span>
+            <div class="col-6 col-md-3 center">
+              <div class="circle">
+                <span id="quizzes">0</span>
+              </div>
+              <span>Completitud Quizzes</span>
             </div>
-            <span>Completitud Quizzes</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <div class="row space"></div>
+    </section>
+    <div class="row space"></div>
 
-<!-- Filtrado -->
-  <section class="container">
-    <div class="row">
-      <div class="col-12 col-md-5">
-        <input name="search" type="text" class="filterChange" id="searchInput" placeholder="Buscar alumna por nombre">
-        <i class="fas fa-search" id="searchButtom"></i>
+    <!-- Filtrado -->
+    <section>
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <input name="search" type="text" class="filterChange" id="searchInput" placeholder="Buscar alumna por nombre">
+          <i class="fas fa-search" id="searchButtom"></i>
+        </div>
+        <div class="col-12 col-md-7">
+          <form method="POST" name="filterForm" name="filterForm">
+            <datalist id="filter">
+              <option id="list">Nombre</option>
+              <option id="list">Porcentaje de completitud total</option>
+              <option id="list">Porcentaje de ejercicios autocorregidos completados</option>
+              <option id="list">Puntuación promedio en quizzes completados</option>
+              <option id="list">Porcentaje de quizzes completados</option>
+              <option id="list">Porcentaje de lecturas completadas</option>
+            </datalist>
+
+            <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden">
+            <input type="radio" name="direction" value="asc">
+            <i class="fas fa-arrow-up" id="asc"></i>
+            <input type="radio" name="direction" value="desc">
+            <i class="fas fa-arrow-down" id="desc"></i>
+            <button type="button" id="filterButtom">Filtrar</button>
+          </form>
+        </div>
       </div>
-      <div class="col-12 col-md-7">
-        <form method="POST" name="filterForm" name="filterForm">
-          <datalist id="filter">
-            <option id="list">Nombre</option>
-            <option id="list">Porcentaje de completitud total</option>
-            <option id="list">Porcentaje de ejercicios autocorregidos completados</option>
-            <option id="list">Porcentaje de quizzes completados</option>
-            <option id="list">Porcentaje de lecturas completadas</option>
-          </datalist>
+    </section>
+    <div class="row space"></div>
 
-          <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden">
-          <input type="radio" name="direction" value="asc">
-          <i class="fas fa-arrow-up" id="asc"></i>
-          <input type="radio" name="direction" value="desc">
-          <i class="fas fa-arrow-down" id="desc"></i>
-          <button type="button" id="filterButtom">Filtrar</button>
-        </form>
-      </div>
-    </div>
-  </section>
-  <div class="row space"></div>
-
-  <!-- Estudiantes -->
-  <section class="container">
-    <!-- Encabezado de estudiantes -->
-    <div class="row">
-      <div class="col-12 col-md-12 headerEstudents">
-        <div class="row">
-          <div class="col-md-4">
-            <span>Nombre</span>
-          </div>
-          <div class="col-md-2">
-            <span>Total</span>
-          </div>
-          <div class="col-md-2">
-            <span>Lecturas</span>
-          </div>
-          <div class="col-md-2">
-            <span>Ejercicios</span>
-          </div>
-          <div class="col-md-2">
-            <span>Quizz</span>
+    <!-- Estudiantes -->
+    <section>
+      <!-- Encabezado de estudiantes -->
+      <div class="row">
+        <div class="col-12 col-md-12 headerEstudents">
+          <div class="row">
+            <div class="col-md-2">
+              <span>Nombre</span>
+            </div>
+            <div class="col-md-2 center">
+              <span class="spanHeaderStudents">% completitud total</span>
+            </div>
+            <div class="col-md-2 center">
+              <span class="spanHeaderStudents">% ejercicios completados</span>
+            </div>
+            <div class="col-md-2 center">
+              <span class="spanHeaderStudents">Puntuación promedio en quizzes completados</span>
+            </div>
+            <div class="col-md-2 center">
+              <span class="spanHeaderStudents">% quizzes completados</span>
+            </div>
+            <div class="col-md-2 center">
+              <span class="spanHeaderStudents">% lecturas completadas</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Lista de estudiantes -->
-    <div class="col-12 col-md-12" id="students"> 
-    </div>
-  </section>
+      <!-- Lista de estudiantes -->
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <div class="row" id="students"></div>
+        </div>
+      </div>
+    </section>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
