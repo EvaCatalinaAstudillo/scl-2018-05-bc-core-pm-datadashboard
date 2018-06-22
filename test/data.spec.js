@@ -155,10 +155,10 @@ describe('data', () => {
     const { users, progress } = fixtures;
     const processed = computeUsersStats(users, progress, courses);
     it('debería retornar nuevo arreglo solo con usuarios con nombres que contengan string (case insensitive)', () => {
-      const stringPrueba = 'Lizeth';
+      const stringPrueba = 'vanessa lizbeth huansi acho';
       const filter = filterUsers(processed, stringPrueba);
       for (let i = 1; i < filter.length; i++) {
-        assert.equal(filter[i].name, 'Lizeth');
+        assert.equal(filter[i].name, 'vanessa lizbeth huansi acho');
       }
     });
   });
@@ -198,11 +198,11 @@ describe('data', () => {
         },
         orderBy: 'Nombre',
         orderDirection: 'DESC',
-        search: 'Romina'
+        search: 'vanessa lizbeth huansi acho'
       };
       const processed = processCohortData(options);
       for (let i = 1; i < processed.length; i++) {
-        assert.equal(processed[i].name, 'Romina');
+        assert.equal(processed[i].name, 'vanessa lizbeth huansi acho');
       }
     });
   });
