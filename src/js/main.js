@@ -3,11 +3,11 @@ window.onload = function() {
 };
 async function requiereJson() {
   try {
-    const jsonUsers = await fetch('../../data/cohorts/lim-2018-03-pre-core-pw/users.json');
+    const jsonUsers = await fetch('https://estephanyc.github.io/scl-2018-05-bc-core-pm-datadashboard/data/cohorts/lim-2018-03-pre-core-pw/users.json');
     const users = await jsonUsers.json();
-    const jsonProgress = await fetch('../../data/cohorts/lim-2018-03-pre-core-pw/progress.json');
+    const jsonProgress = await fetch('https://estephanyc.github.io/scl-2018-05-bc-core-pm-datadashboard/data/cohorts/lim-2018-03-pre-core-pw/progress.json');
     const progress = await jsonProgress.json();
-    const jsonCohorts = await fetch('../../data/cohorts.json');
+    const jsonCohorts = await fetch('https://estephanyc.github.io/scl-2018-05-bc-core-pm-datadashboard/data/cohorts.json');
     const cohorts = await jsonCohorts.json();
 
     showCohortsList(cohorts);
