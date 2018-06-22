@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
+    <!--  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
 </head>
 
 <body>
@@ -27,120 +28,120 @@
   <div class="row space"></div>
 
 <!-- Lista de cohorts y estadisticas -->
-  <div class="container">
-    <section>
-      <div class="row">
-        <div class="col-12 col-md-5">
-          <form id="form" method="POST">
-            <datalist id="listas">
-              <option id="list"></option>
-            </datalist>
-            <input list="listas" type="text" class="filterChange" id="cohortsInput" placeholder="Seleccione cohort">
-          </form>
-        </div>
-        <div class="col-12 col-md-7">
-          <div class="row">
-            <div class="col-6 col-md-3 center">
-              <div class="circle">
-                <span id="total">0</span>
-              </div>
-              <span>Completitud Total</span>
+  <section class="container">
+    <div class="row">
+      <div class="col-12 col-md-5">
+        <form id="form" method="POST">
+            <select  id="cohortsInput" class="select">
+              <option>Seleccione un cohort</option>
+            </select>
+        </form>
+      </div>
+      <div class="col-12 col-md-7 hidden" id="stats">
+        <div class="row">
+          <div class="col-5 col-md-3 center">
+            <div class="circle">
+              <span id="total">0</span>
             </div>
-            <div class="col-6 col-md-3 center">
-              <div class="circle">
-                <span id="lecturas">0</span>
-              </div>
-              <span>Completitud Lecturas</span>
+            <span>Completitud Total</span>
+          </div>
+          <div class="col-5 col-md-3 center">
+            <div class="circle">
+              <span id="lecturas">0</span>
             </div>
-            <div class="col-6 col-md-3 center">
-              <div class="circle">
-                <span id="ejercicios">0</span>
-              </div>
-              <span>Completitud Ejercicios</span>
+            <span>Completitud Lecturas</span>
+          </div>
+          <div class="col-5 col-md-3 center">
+            <div class="circle">
+              <span id="ejercicios">0</span>
             </div>
-            <div class="col-6 col-md-3 center">
-              <div class="circle">
-                <span id="quizzes">0</span>
-              </div>
-              <span>Completitud Quizzes</span>
+            <span>Completitud Ejercicios</span>
+          </div>
+          <div class="col-5 col-md-3 center">
+            <div class="circle">
+              <span id="quizzes">0</span>
             </div>
+            <span>Completitud Quizzes</span>
           </div>
         </div>
       </div>
-    </section>
-    <div class="row space"></div>
+    </div>
+  </section>
+  <div class="row space"></div>
 
-    <!-- Filtrado -->
-    <section>
-      <div class="row">
-        <div class="col-12 col-md-5">
-          <input name="search" type="text" class="filterChange" id="searchInput" placeholder="Buscar alumna por nombre">
-          <i class="fas fa-search" id="searchButtom"></i>
+  <div class="hidden" id="filter-Students">
+      <!-- Filtrado -->
+      <section class="container">
+        <div class="row">
+          <div class="col-12 col-md-5">
+            <input name="search" type="text" class="filterChange" id="searchInput" placeholder="Buscar alumna por nombre">
+            <i class="fas fa-search" id="searchButtom"></i>
+          </div>
+          <div class="col-12 col-md-7">
+            <form method="POST" name="filterForm">
+              <select id="filterInput" class="select">
+                <option>Nombre</option>
+                <option>Porcentaje de completitud total</option>
+                <option>Porcentaje de ejercicios autocorregidos completados</option>
+                <option>Puntuación promedio en quizzes completados</option>
+                <option>Porcentaje de quizzes completados</option>
+                <option>Porcentaje de lecturas completadas</option>
+              </select>
+
+    <!--             <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden"> -->
+              <input type="radio" name="direction" value="ASC">
+              <i class="fas fa-arrow-up" id="asc"></i>
+              <input type="radio" name="direction" value="DESC">
+              <i class="fas fa-arrow-down" id="desc"></i>
+              <button type="button" id="filterButtom">Filtrar</button>
+            </form>
+          </div>
         </div>
-        <div class="col-12 col-md-7">
-          <form method="POST" name="filterForm">
-            <datalist id="filter">
-              <option>Nombre</option>
-              <option>Porcentaje de completitud total</option>
-              <option>Porcentaje de ejercicios autocorregidos completados</option>
-              <option>Puntuación promedio en quizzes completados</option>
-              <option>Porcentaje de quizzes completados</option>
-              <option>Porcentaje de lecturas completadas</option>
-            </datalist>
+      </section>
+      <div class="row space"></div>
 
-            <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden">
-            <input type="radio" name="direction" value="ASC">
-            <i class="fas fa-arrow-up" id="asc"></i>
-            <input type="radio" name="direction" value="DESC">
-            <i class="fas fa-arrow-down" id="desc"></i>
-            <button type="button" id="filterButtom">Filtrar</button>
-          </form>
-        </div>
-      </div>
-    </section>
-    <div class="row space"></div>
-
-    <!-- Estudiantes -->
-    <section>
-      <!-- Encabezado de estudiantes -->
-      <div class="row">
-        <div class="col-12 col-md-12 headerEstudents">
-          <div class="row">
-            <div class="col-md-2">
-              <span>Nombre</span>
-            </div>
-            <div class="col-md-2 center">
-              <span class="spanHeaderStudents">% completitud total</span>
-            </div>
-            <div class="col-md-2 center">
-              <span class="spanHeaderStudents">% ejercicios completados</span>
-            </div>
-            <div class="col-md-2 center">
-              <span class="spanHeaderStudents">Puntuación promedio en quizzes completados</span>
-            </div>
-            <div class="col-md-2 center">
-              <span class="spanHeaderStudents">% quizzes completados</span>
-            </div>
-            <div class="col-md-2 center">
-              <span class="spanHeaderStudents">% lecturas completadas</span>
+      <!-- Estudiantes -->
+      <section class="container">
+        <!-- Encabezado de estudiantes -->
+        <div class="row">
+          <div class="col-12 col-md-12 headerEstudents">
+            <div class="row">
+              <div class="col-md-2">
+                <span>Nombre</span>
+              </div>
+              <div class="col-2 col-md-2 center">
+                <span class="spanHeaderStudents">% completitud total</span>
+              </div>
+              <div class="col-2 col-md-2 center">
+                <span class="spanHeaderStudents">% ejercicios completados</span>
+              </div>
+              <div class="col-2 col-md-2 center">
+                <span class="spanHeaderStudents">Punt. promedio en quizzes comp.</span>
+              </div>
+              <div class="col-2 col-md-2 center">
+                <span class="spanHeaderStudents">% quizzes completados</span>
+              </div>
+              <div class="col-2 col-md-2 center">
+                <span class="spanHeaderStudents">% lecturas completadas</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Lista de estudiantes -->
-      <div class="row">
-        <div class="col-12 col-md-12">
-          <div class="row" id="students"></div>
+        <!-- Lista de estudiantes -->
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div class="row" id="students"></div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   </div>
+ 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
+  
 </body>
-
 </html>
