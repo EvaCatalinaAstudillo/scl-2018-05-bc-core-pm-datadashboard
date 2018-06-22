@@ -1,6 +1,3 @@
-window.onload = function() {
-  requiereJson();
-};
 window.computeUsersStats = (users, progress, courses) => {
   for (i = 0; i < users.length; i++) {
     let userId = users[i].id;

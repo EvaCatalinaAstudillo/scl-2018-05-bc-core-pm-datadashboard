@@ -6,6 +6,5 @@ global.fixtures = {
   users: require('../data/cohorts/lim-2018-03-pre-core-pw/users.json'),
 };
 require('../src/js/data');
-require('../src/js/main');
 require('./data.spec.js');
 
