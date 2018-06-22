@@ -1,14 +1,15 @@
 # Data Dashboard
 
 ## Introducción
-
 Data dashboard es una interfaz web donde se puede ver y filtrar el progreso de las alumnas de Laboratoria en el  LMS (Sistema de Gestión de Aprendizaje).
 (interfaz web)
 (https://karaina.github.io/scl-2018-05-bc-core-pm-datadashboard).
 
+
 ## Planificación del proyecto
 [Trello]
 (https://trello.com/b/tVkuxrLr/data-dashboard).
+
 
 ## User Experience Design
 
@@ -40,8 +41,7 @@ El producto resuelve los problemas  de nuestro usuario porque está pensado para
 ![sketch final dashboard](https://user-images.githubusercontent.com/39053734/41178829-dd342274-6b3e-11e8-96de-82289f03ac70.jpg)
 ![skecht final dashboard 2](https://user-images.githubusercontent.com/39053734/41180840-06b09446-6b46-11e8-803b-04f61a660b5a.jpg)
 
-
-Este sketch se pasó a un prototipo de alta fidelidad hecho en figma para terminar de afinar el estilo completo antes de empezar a trabajar directamente con el html y css del proyecto, y también se creó una presentación en el mismo sitio web (figma) para tener una idea más cercana a la función que cumplían los diferentes filtros y/o botones.
+Este sketch se pasó a un prototipo de alta fidelidad hecho en figma para terminar de definir el estilo completo antes de empezar a trabajar directamente con el html y css del proyecto, y también se creó una presentación en el mismo sitio web (figma) para tener una idea más cercana a la función que cumplían los diferentes filtros y/o botones.
 
 ###Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
  **Desktop**
