@@ -24,6 +24,8 @@ inputChange = (users, progress, cohorts) => {
 
   // Escuchar eventos del dom y llamar la funcion cada vez que se cambie el filtro
   document.getElementById('cohortsInput').addEventListener('change', function() {
+    document.getElementById('filter-Students').classList.add('visibility');
+    document.getElementById('stats').classList.add('visibility');
     let cohortSelect = document.getElementById('cohortsInput').value;
     findCohort = cohorts.find(item => item.id === cohortSelect);
     printData(processCohortData(createObjectOptions()));
@@ -68,7 +70,7 @@ printData = (users) => {
 
   // Variables de estadisticas de cohort en general
   let completitudTotalSum = 0, percentLecturasSum = 0,
-    percentQuizzSum = 0, percentExercisesSum = 0, completitudTotal = 0, percentLecturas = 0, percentQuizzes = 0, percentExercises = 0;
+    percentQuizzSum = 0, percentExercisesSum = 0;
   
   for (let i = 0; i < users.length; i++) {
     const userList = document.getElementById('students');
@@ -107,12 +109,23 @@ printData = (users) => {
   }
 
   // imprimir estadisticas de todo el cohort
+  let completitudTotal = Math.round(completitudTotalSum / users.length),
+    percentLecturas = Math.round(percentLecturasSum / users.length),
+    percentQuizzes = Math.round(percentQuizzSum / users.length),
+    percentExercises = Math.round(percentExercisesSum / users.length) ;
+
   let totalSpan = document.getElementById('total');
-  totalSpan.innerText = Math.round(completitudTotalSum / users.length) + ' % ';
+  totalSpan.innerText = completitudTotal + ' % ';
+
   let lecturasSpan = document.getElementById('lecturas');
-  lecturasSpan.innerText = Math.round(percentLecturasSum / users.length) + ' % ';
+  lecturasSpan.innerText = percentLecturas + ' % ';
+
   let quizzesSpan = document.getElementById('quizzes');
-  quizzesSpan.innerText = Math.round(percentQuizzSum / users.length) + ' % ';
+  quizzesSpan.innerText = percentQuizzes + ' % ';
+
   let exercisesSpan = document.getElementById('ejercicios');
-  exercisesSpan.innerText = Math.round(percentExercisesSum / users.length) + ' % ';
+  exercisesSpan.innerText = percentExercises + ' % ';
+
+  let prueba = 100 / users.length;
+  console.log(prueba * completitudTotalSum);
 };
