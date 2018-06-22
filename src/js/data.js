@@ -1,65 +1,4 @@
-window.onload = function() {
-  requiereJson();
-};
-async function requiereJson() {
-  try {
-    const jsonUsers = await fetch('../../data/cohorts/lim-2018-03-pre-core-pw/users.json');
-    const users = await jsonUsers.json();
-    const jsonProgress = await fetch('../../data/cohorts/lim-2018-03-pre-core-pw/progress.json');
-    const progress = await jsonProgress.json();
-    const jsonCohorts = await fetch('../../data/cohorts.json');
-    const cohorts = await jsonCohorts.json();
-
-    showCohortsList(cohorts);
-    inputChange(users, progress, cohorts);
-  } catch (err) {
-    alert('no se pudierón cargar los datos' + err);
-  }
-}
-inputChange = (users, progress, cohorts) => {
-  let searchString = '';
-  let findCohort = '';
-  let filter = '';
-  let direcction = '';
-
-  if ("document" in window) {
-    // Escuchar eventos del dom y llamar la funcion cada vez que se cambie el filtro
-    document.getElementById('cohortsInput').addEventListener('change', function() {
-      let cohortSelect = document.getElementById('cohortsInput').value;
-      findCohort = cohorts.find(item => item.id === cohortSelect);
-      printData(processCohortData(createObjectOptions()));
-    });
-    document.getElementById('searchButtom').addEventListener('click', function() {
-      searchString = document.getElementById('searchInput').value;
-      printData(processCohortData(createObjectOptions()));
-    });
-    document.getElementById('filterButtom').addEventListener('click', function() {
-      filter = document.getElementById('filterInput').value;
-      direcction = document.filterForm.direction.value;
-      printData(processCohortData(createObjectOptions()));
-    });
-  }
-  createObjectOptions = () => {
-    const options = {
-      cohort: findCohort,
-      cohortData: {
-        users: users,
-        progress: progress,
-      },
-      orderBy: filter,
-      orderDirection: direcction,
-      search: searchString
-    };
-    return options;
-  };
-};
-
-
 window.computeUsersStats = (users, progress, courses) => {
-  // Variables de estadisticas de cohort en general
-  let completitudTotalSum = 0, percentLecturasSum = 0,
-    percentQuizzSum = 0, percentExercisesSum = 0, completitudTotal = 0, percentLecturas = 0, percentQuizzes = 0, percentExercises = 0;
-
   for (i = 0; i < users.length; i++) {
     let userId = users[i].id;
     let userProgress = progress[userId];
@@ -81,6 +20,7 @@ window.computeUsersStats = (users, progress, courses) => {
     }
     let readsCompleted = 0, readsTotal = 0, scoreSumQuizz = 0, scoreAvg = 0,
       quizzCompleted = 0, quizzTotal = 0, practiceTotal = 0, practiceCompleted = 0, percent = 0;
+
     courses.forEach(element => {
       percent = userProgress[element].percent;
       const unitsValues = Object.values(userProgress[element].units);
@@ -106,7 +46,7 @@ window.computeUsersStats = (users, progress, courses) => {
             }
           }
         }); // cierre de partes forEach
-      });// cierre de unitsvalues forEach
+      });// cierre de units values forEach
 
       users[i] = {
         ...users[i],
@@ -133,29 +73,6 @@ window.computeUsersStats = (users, progress, courses) => {
         }
       };
     });
-
-      // console.log(users[i].name + " " + quizzTotal + " completadas" + quizzCompleted + "porcentaje" + users[i].stats.quizzes.percent + scoreSumQuizz);
-      percentLecturasSum += users[i].stats.reads.percent;
-      percentQuizzSum += users[i].stats.quizzes.percent;
-      percentExercisesSum += users[i].stats.exercises.percent;
-    
-  }
-  // Estadisticas de todo el cohort
-  completitudTotal = Math.round(completitudTotalSum / users.length) + ' % ';
-  percentLecturas = Math.round(percentLecturasSum / users.length) + ' % ';
-  percentQuizzes = Math.round(percentQuizzSum / users.length) + ' % ';
-  percentExercises = Math.round(percentExercisesSum / users.length) + ' % ';
-
-  if("document" in window){
-    let totalSpan = document.getElementById('total');
-    console.log(totalSpan)
-    totalSpan.innerText = completitudTotal;
-    let lecturasSpan = document.getElementById('lecturas');
-    lecturasSpan.innerText = percentLecturas;
-    let quizzesSpan = document.getElementById('quizzes');
-    quizzesSpan.innerText = percentQuizzes;
-    let exercisesSpan = document.getElementById('ejercicios');
-    exercisesSpan.innerText = percentExercises;
   }
   return users;
 };
@@ -224,7 +141,7 @@ window.filterUsers = (users, search) => {
   });
   return usersFilter;
 };
-processCohortData = (options) => {
+window.processCohortData = (options) => {
   let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
   let userNewArray = window.computeUsersStats(options.cohortData.users, options.cohortData.progress, coursesCohortSelect);
   userNewArray = window.filterUsers(userNewArray, options.search);
