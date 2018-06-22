@@ -133,12 +133,17 @@ window.sortUsers = (users, orderBy, orderDirection) => {
   return sorted;
 };
 window.filterUsers = (users, search) => {
-  
+  const usersFilter = users.filter((elemento) => {
+    return elemento.name === search;
+  });
+  return usersFilter;
 };
 window.processCohortData = (options) => {
   let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
   let userNewArray = window.computeUsersStats(options.cohortData.users, options.cohortData.progress, coursesCohortSelect);
-  userNewArray = window.filterUsers(userNewArray, options.search);
+  if (options.search !== '') {
+    userNewArray = window.filterUsers(userNewArray, options.search);
+  }
   userNewArray = window.sortUsers(userNewArray, options.orderBy, options.orderDirection);
   return userNewArray;
 };
