@@ -107,7 +107,7 @@ describe('data', () => {
     });
     it('debería retornar arreglo de usuarios ordenado por ejercicios completados DESC', () => {
       const sortedUsers = sortUsers(processed, 'Porcentaje de ejercicios autocorregidos completados', 'DESC');
-      for (let i = 1; i<sortedUsers.length; i++) {
+      for (let i = 1; i < sortedUsers.length; i++) {
         assert.isAtLeast((sortedUsers[0].stats.exercises.percent) - (sortedUsers[1].stats.exercises.percent), 0);
       }
     });
@@ -118,7 +118,7 @@ describe('data', () => {
       }
     });
     it('debería retornar arreglo de usuarios ordenado por quizzes completados DESC', () => {
-      const sortedUsers = sortUsers(processed, 'Porcentaje de quizzes completados', 'DESC');
+      const sortedUsers = sortUsers(processed, 'Porcentaje de ejercicios autocorregidos completados', 'DESC');
       for (let i = 1; i < sortedUsers.length; i++) {
         assert.isAtLeast((sortedUsers[0].stats.quizzes.percent) - (sortedUsers[1].stats.quizzes.percent), 0);
       }
@@ -150,20 +150,60 @@ describe('data', () => {
   });
 
   describe('filterUsers(users, filterBy)', () => {
+    const cohort = fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
+    const courses = Object.keys(cohort.coursesIndex);
+    const { users, progress } = fixtures;
+    const processed = computeUsersStats(users, progress, courses);
     it('debería retornar nuevo arreglo solo con usuarios con nombres que contengan string (case insensitive)', () => {
-      const cohort = fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
-      const courses = Object.keys(cohort.coursesIndex);
-      const { users, progress } = fixtures;
-      const processed = computeUsersStats(users, progress, courses);
       const stringPrueba = 'Lizeth';
       const filter = filterUsers(processed, stringPrueba);
-      for (let i = 1; filter < filter.length; i++) {
+      for (let i = 1; i < filter.length; i++) {
         assert.equal(filter[i].name, 'Lizeth');
       }
     });
   });
 
   describe('processCohortData({ cohortData, orderBy, orderDirection, filterBy })', () => {
-    it('debería retornar arreglo de usuarios con propiedad stats y aplicar sort y filter');
+    const cohort = fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
+    const { users, progress } = fixtures;
+    const courses = Object.keys(cohort.coursesIndex);
+    const options = {
+      cohort: cohort,
+      cohortData: {
+        users: users,
+        progress: progress,
+      },
+      orderBy: 'Nombre',
+      orderDirection: 'DESC',
+      search: ''
+    };
+    it('debería retornar arreglo de usuarios con propiedad stats', () => {
+      const processed = processCohortData(options);
+      processed.forEach(user => {
+        assert.ok(user.hasOwnProperty('stats'));
+      });
+    });
+    it('debería retornar arreglo de usuarios aplicando sort', () => {
+      const processed = processCohortData(options);
+      for (let i = 1; i < processed.length; i++) {
+        assert.isAtLeast((processed[0].name).localeCompare(processed[1].name), 0);
+      }
+    });
+    it('debería retornar arreglo de usuarios aplicando filter', () => {
+      const options = {
+        cohort: cohort,
+        cohortData: {
+          users: users,
+          progress: progress,
+        },
+        orderBy: 'Nombre',
+        orderDirection: 'DESC',
+        search: 'Romina'
+      };
+      const processed = processCohortData(options);
+      for (let i = 1; i < processed.length; i++) {
+        assert.equal(processed[i].name, 'Romina');
+      }
+    });
   });
 });
