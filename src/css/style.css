@@ -157,3 +157,16 @@ button:hover {
 .spanHeaderStudents {
     font-size: 14px;
 }
+.hidden
+{
+    display: none;
+}
+.visibility
+{
+    display: block !important;
+}
+@media (max-width: 600px) {
+    .spanHeaderStudents {
+       font-size: 10px;
+    }
+}
