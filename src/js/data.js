@@ -133,13 +133,7 @@ window.sortUsers = (users, orderBy, orderDirection) => {
   return sorted;
 };
 window.filterUsers = (users, search) => {
-  if (search === '') {
-    return users;
-  }
-  const usersFilter = users.filter((elemento) => {
-    return elemento.name === search;
-  });
-  return usersFilter;
+  
 };
 window.processCohortData = (options) => {
   let coursesCohortSelect = Object.keys(options.cohort.coursesIndex);
