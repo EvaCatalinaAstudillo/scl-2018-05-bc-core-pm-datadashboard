@@ -32,10 +32,10 @@
       <div class="row">
         <div class="col-12 col-md-5">
           <form id="form" method="POST">
-            <datalist id="listas">
-              <option id="list"></option>
-            </datalist>
-            <input list="listas" type="text" class="filterChange" id="cohortsInput" placeholder="Seleccione cohort">
+              <select  id="cohortsInput" class="select">
+                <option>Seleccione un cohort</option>
+              </select>
+           <!--  <input list="listas"  type="text" class="filterChange"  placeholder="Seleccione cohort"> -->
           </form>
         </div>
         <div class="col-12 col-md-7">
@@ -79,16 +79,16 @@
         </div>
         <div class="col-12 col-md-7">
           <form method="POST" name="filterForm">
-            <datalist id="filter">
+            <select id="filterInput" class="select">
               <option>Nombre</option>
               <option>Porcentaje de completitud total</option>
               <option>Porcentaje de ejercicios autocorregidos completados</option>
               <option>Puntuación promedio en quizzes completados</option>
               <option>Porcentaje de quizzes completados</option>
               <option>Porcentaje de lecturas completadas</option>
-            </datalist>
+            </select>
 
-            <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden">
+<!--             <input list="filter" type="text" id="filterInput" placeholder="Seleccione criterio de orden"> -->
             <input type="radio" name="direction" value="ASC">
             <i class="fas fa-arrow-up" id="asc"></i>
             <input type="radio" name="direction" value="DESC">
